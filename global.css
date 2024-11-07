@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+      font-family: 'SF-Regular';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('/src/assets/fonts/SF-Pro.ttf') format('ttf');
+    }
+    @font-face {
+        font-family: 'SF-Pro-Text-HeavyItalic';
+        font-style: italic;
+        font-weight: 700;
+        font-display: swap;
+        src: url('/src/assets/fonts/SF-Pro-Text-HeavyItalic.otf') format('otf');
+      }
+      @font-face {
+        font-family: 'SF-Pro-Italic';
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+        src: url('/src/assets/fonts/SF-Pro-Italic.ttf') format('ttf');
+      }
+  }
