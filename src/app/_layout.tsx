@@ -3,6 +3,8 @@ import "@/global.css";
 import { Stack } from 'expo-router';
 import React, { useEffect } from 'react';
 import { useFonts } from 'expo-font';
+import { StatusBar } from 'expo-status-bar';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -23,11 +25,21 @@ export default function RootLayout() {
   if(!fontsLoaded && !error) return null
 
   return (
+  
+    <SafeAreaView className='flex-1'>
+      <StatusBar style='light' backgroundColor='#000000' />
       <Stack>
-        <Stack.Screen name="index" options={{headerShown: false}} />
-        <Stack.Screen name="(steps)" options={{ headerShown: false }} />
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      </Stack>
+          <Stack.Screen name="index" options={{headerShown: false}} />
+          <Stack.Screen name="(steps)" options={{ headerShown: false }} />
+          <Stack.Screen name="search/[id]" options={{ headerShown: false }} />
+          <Stack.Screen name="(record)" options={{ headerShown: false }} />
+        </Stack>
+    </SafeAreaView>
+
+  
+    
+   
+   
    
   );
 }

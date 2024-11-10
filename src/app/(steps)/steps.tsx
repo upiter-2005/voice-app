@@ -1,15 +1,15 @@
-import { router } from 'expo-router';
-import React from 'react';
-import { Image, ScrollView, View, Text, TouchableOpacity, SafeAreaView, Dimensions, ImageBackground, StatusBar } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+import { router } from 'expo-router'
+import React from 'react'
+import { View, Text, TouchableOpacity, SafeAreaView, Dimensions, ImageBackground } from 'react-native'
+import { LinearGradient } from 'expo-linear-gradient'
 
 import step1 from '@/src/assets/images/step1.png'
 import step2 from '@/src/assets/images/step2.png'
 import step3 from '@/src/assets/images/step3.png'
 import step4 from '@/src/assets/images/step4.png'
 
-import Carousel from 'react-native-reanimated-carousel';
-import type { ICarouselInstance } from "react-native-reanimated-carousel";
+import Carousel from 'react-native-reanimated-carousel'
+import type { ICarouselInstance } from "react-native-reanimated-carousel"
 
 export default function Step1() {
   const data = [
@@ -18,9 +18,8 @@ export default function Step1() {
     {title: "Write text for that voice", img: step3},
     {title: "Done! Send funny phrases in their voices. Enjoy!", img: step4},
   ]
-  const ref = React.useRef<ICarouselInstance>(null);
+  const ref = React.useRef<ICarouselInstance>(null)
   const renderItem = ({item}: {item: any}) => {
- 
 
     return (
      
@@ -43,30 +42,27 @@ export default function Step1() {
             <Text className='text-2xl text-white text-center'>Skip</Text>
           </TouchableOpacity>
 
-          <View className='shadow-2xl shadow-black flex-1 rounded-xl overflow-hidden'>
-            <LinearGradient
+            <TouchableOpacity
+              className=' w-full h-full shadow-2xl shadow-black flex-1 rounded-xl overflow-hidden'
+              activeOpacity={0.6}
+              onPress={()=>ref.current?.next()}
+            >
+              <LinearGradient
                 colors={['#00A3FF', '#CC00FF']}
                 start={{ x: 1, y: .5 }}
                 end={{ x: 0, y: .5 }}
               >
-                <TouchableOpacity
-                  className='p-4 w-full h-full'
-                  activeOpacity={0.6}
-                  onPress={()=>ref.current?.next()}
-                >
-                  <Text className='text-2xl text-white text-center'>Next</Text>
-                </TouchableOpacity> 
-            </LinearGradient>
-          </View>
-          
+                <Text className='text-2xl text-white text-center p-4'>Next</Text>
+              </LinearGradient>
+            </TouchableOpacity> 
         </View>
       </ImageBackground>
     );
   };
 
   return (
-    <SafeAreaView >
-      <ScrollView contentContainerStyle={{ height: '100%' }}>
+    
+      <View className='h-full'>
         <Carousel
           ref={ref}
           loop={false} // Enables infinite looping of the carousel
@@ -86,8 +82,8 @@ export default function Step1() {
           renderItem={renderItem} // Function to render each item in the carousel
           
         />
-      </ScrollView>
-    </SafeAreaView>
+      </View>
+   
     
   );
 }

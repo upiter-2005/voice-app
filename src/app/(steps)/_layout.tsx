@@ -8,13 +8,8 @@ SplashScreen.preventAutoHideAsync();
 export default function StepsLayout() {
  
   return (
-    <>
-   
-        <Stack>
-            <Stack.Screen name="steps" options={{headerShown: false}} />
-        </Stack>
-    </>
-      
-   
+    <Stack>
+        <Stack.Screen name="steps" options={{headerShown: false}} />
+    </Stack>
   );
 }
